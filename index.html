@@ -491,10 +491,10 @@
            ========================================= */
         @media (max-width: 960px) {
             .bento-grid-1, .bento-grid-2, .bento-grid-3 {
-                grid-template-columns: 1fr; /* Stacks everything in one column */
+                grid-template-columns: 1fr; 
             }
             .strategy-card, .speakers-card, .portfolio-card {
-                grid-row: auto; /* Removes the double-height requirement */
+                grid-row: auto; 
             }
             .image-card {
                 min-height: 250px;
@@ -505,7 +505,45 @@
 <body>
 
     <!-- ==========================================
-         SLIDE 1: The Core Pitch
+         SLIDE 1: Introduction (Newly Added)
+         ========================================== -->
+    <div class="slide-container" id="slide0">
+        <header class="header">
+            <h1>Candidacy for <span>Director of STEM Outreach</span></h1>
+            <p>Bridging technical skill-building with global humanitarian advocacy.</p>
+        </header>
+
+        <div class="bento-grid-2">
+            <div class="bento-card fit-card" style="grid-row: span 2;">
+                <div class="card-header-row">
+                    <div class="card-icon">
+                        <i class="fa-solid fa-user-astronaut"></i>
+                    </div>
+                    <h2>Meet the Candidate</h2>
+                </div>
+                <p style="margin-bottom: 25px; font-size: 16px; line-height: 1.6;">I am a highly motivated STEM student currently active in Exoplanet research and satellite communications. I am bridging my background in Astronomy and Web Development to build a powerful new outreach pipeline for UNICEF.</p>
+                
+                <ul class="contribution-list" style="margin-bottom: 30px;">
+                    <li><i class="fa-solid fa-satellite"></i> Satellite Tracking</li>
+                    <li><i class="fa-solid fa-radio"></i> Ham Radio Licensed</li>
+                    <li><i class="fa-solid fa-code"></i> Web Development</li>
+                    <li><i class="fa-solid fa-chart-pie"></i> Data Analysis</li>
+                </ul>
+
+                <div style="background: rgba(255,255,255,0.05); padding: 20px; border-radius: 16px; margin-top: auto; border-left: 4px solid #38bdf8;">
+                    <strong style="color: #38bdf8; display: block; margin-bottom: 8px; font-size: 16px;">My Vision:</strong>
+                    <p style="font-size: 14px; margin: 0; line-height: 1.5; color: #cbd5e1;">Transforming UNICEF into a campus hub for tech-driven humanitarian impact, where technical skill-building directly empowers our core mission of global child advocacy.</p>
+                </div>
+            </div>
+
+            <div class="bento-card image-card" style="grid-row: span 2;">
+                <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=1470&auto=format&fit=crop" alt="Collaborative STEM environment">
+            </div>
+        </div>
+    </div>
+
+    <!-- ==========================================
+         SLIDE 2: The Core Pitch
          ========================================== -->
     <div class="slide-container" id="slide1">
         
@@ -584,7 +622,7 @@
     </div>
 
     <!-- ==========================================
-         SLIDE 2: Future Expansion & Speakers
+         SLIDE 3: Future Expansion & Speakers
          ========================================== -->
     <div class="slide-container" id="slide2">
         
@@ -641,7 +679,7 @@
                         </div>
                     </div>
                     <div class="speaker-item">
-                        <div class="speaker-icon"><i class="fa-solid fa-chart-network"></i></div>
+                        <div class="speaker-icon"><i class="fa-solid fa-chart-line"></i></div>
                         <div class="speaker-info">
                             <strong>DataKind Outreach</strong>
                             <span class="location"><i class="fa-solid fa-laptop"></i> San Francisco / Virtual</span>
@@ -667,7 +705,7 @@
     </div>
 
     <!-- ==========================================
-         SLIDE 3: Legitimizing the Certificate
+         SLIDE 4: Legitimizing the Certificate
          ========================================== -->
     <div class="slide-container" id="slide3">
         <header class="header">
