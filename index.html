@@ -16,123 +16,121 @@
         }
 
         body {
-            background-color: #e2e8f0; 
+            background-color: #f1f5f9; 
             display: flex;
             flex-direction: column;
-            gap: 40px;
+            gap: 50px;
             min-height: 100vh;
-            padding: 40px 20px;
+            padding: 60px 20px;
             align-items: center;
             font-family: 'Plus Jakarta Sans', sans-serif;
             color: #1e293b;
         }
 
-        /* The main presentation canvas - fully responsive */
+        /* Presentation Card Container - Restored to Auto Height */
         .slide-container {
             background-color: #ffffff;
-            border-radius: 24px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+            border-radius: 28px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
             width: 100%;
             max-width: 1200px;
-            height: auto; 
-            padding: clamp(30px, 5vw, 50px);
+            height: auto; /* This prevents ANY cutoff */
+            padding: clamp(40px, 6vw, 60px);
             display: flex;
             flex-direction: column;
-            gap: 25px;
+            gap: 30px;
             position: relative;
+            border: 1px solid #e2e8f0;
         }
 
-        /* Header Styling */
+        /* Typography */
         .header {
             text-align: left;
             border-bottom: 2px solid #f1f5f9;
-            padding-bottom: 15px;
-            flex-shrink: 0;
+            padding-bottom: 20px;
         }
-
         .header h1 {
             font-family: 'Outfit', sans-serif;
-            font-size: clamp(32px, 4vw, 42px);
+            font-size: clamp(32px, 4vw, 48px);
             font-weight: 700;
             color: #0f172a;
-            line-height: 1.1;
-            margin-bottom: 8px;
-            letter-spacing: -0.5px;
+            letter-spacing: -1px;
         }
+        .header h1 span { color: #0ea5e9; }
+        .header p { font-size: 20px; color: #64748b; font-weight: 500; margin-top: 5px; }
 
-        .header h1 span {
-            color: #0ea5e9; /* UNICEF Blue */
-        }
-
-        .header p {
-            font-size: clamp(16px, 2vw, 20px);
-            color: #64748b;
-            font-weight: 500;
-        }
-
-        /* Universal Card Styling */
         .bento-card {
             background-color: #f8fafc;
-            border-radius: 20px;
-            padding: clamp(20px, 3vw, 30px);
+            border-radius: 24px;
+            padding: 30px;
             border: 1px solid #e2e8f0;
             display: flex;
             flex-direction: column;
         }
-
-        .card-header-row {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            margin-bottom: 15px;
-        }
-
         .card-icon {
-            width: 50px;
-            height: 50px;
-            border-radius: 14px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-            flex-shrink: 0;
+            width: 55px; height: 55px; border-radius: 14px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 26px; margin-bottom: 20px;
         }
 
-        .bento-card h2 {
-            font-family: 'Outfit', sans-serif;
-            font-size: clamp(20px, 2.5vw, 26px);
-            font-weight: 700;
-            color: #0f172a;
-            letter-spacing: -0.5px;
-        }
-
-        .bento-card p {
-            font-size: clamp(14px, 1.5vw, 16px);
-            line-height: 1.5;
-            color: #475569;
-        }
-
-        /* =========================================
-           SLIDE 1 SPECIFIC CSS
-           ========================================= */
-        .bento-grid-1 {
+        /* Layout Grid */
+        .bento-grid {
             display: grid;
-            grid-template-columns: 1.3fr 1fr;
-            gap: 20px;
-            flex-grow: 1;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 24px;
+        }
+        
+        .bento-grid-equal {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
         }
 
-        .strategy-card {
-            grid-row: span 2;
-            background: linear-gradient(145deg, #ffffff, #f0f9ff);
-            border: 2px solid #bae6fd;
+        /* Intro Slide Colors */
+        .intro-card {
+            background: linear-gradient(145deg, #0f172a, #1e293b);
+            color: white; border: none; grid-row: span 2;
+        }
+        .intro-card h2 { color: white; font-family: 'Outfit'; font-size: 36px; margin-bottom: 20px; }
+        .intro-card .card-icon { background: #334155; color: #38bdf8; }
+        .intro-card p { color: #cbd5e1; font-size: 17px; line-height: 1.6; margin-bottom: 25px; }
+
+        .skill-tags { display: flex; flex-wrap: wrap; gap: 10px; }
+        .skill-tag {
+            background: rgba(56, 189, 248, 0.15);
+            color: #38bdf8; padding: 8px 16px; border-radius: 10px;
+            font-size: 14px; font-weight: 700; border: 1px solid rgba(56, 189, 248, 0.3);
         }
 
-        .strategy-card .card-icon {
-            background-color: #e0f2fe;
-            color: #0284c7;
+        .strategy-card { background: #f0f9ff; border: 1px solid #bae6fd; }
+        .strategy-card h2 { color: #0c4a6e; font-family: 'Outfit'; font-size: 28px; }
+        .strategy-card .card-icon { background: #e0f2fe; color: #0284c7; }
+
+        .info-box {
+            background: white; border-left: 4px solid #0ea5e9;
+            padding: 20px; border-radius: 0 16px 16px 0; margin-top: auto;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
         }
 
+        .image-card { padding: 0; overflow: hidden; border: none; height: 320px; position: relative; }
+        .image-card img { width: 100%; height: 100%; object-fit: cover; }
+
+        /* Future Initiatives & Credentials */
+        .item-list { display: flex; flex-direction: column; gap: 15px; margin-top: 15px; }
+        .list-item {
+            background: white; padding: 20px; border-radius: 16px; border: 1px solid #e2e8f0;
+            display: flex; gap: 15px; align-items: center;
+        }
+        .list-item i { color: #0ea5e9; font-size: 20px; width: 30px; text-align: center; }
+
+        .credential-box { background: #f0fdf4; padding: 20px; border-radius: 16px; border-left: 5px solid #16a34a; margin-top: 15px; }
+        
+        @media (max-width: 960px) {
+            .bento-grid, .bento-grid-equal { grid-template-columns: 1fr; }
+            .intro-card, .strategy-card { grid-row: auto; }
+        }
+
+        /* Specific Workshop grid */
         .workshop-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
@@ -165,63 +163,6 @@
             color: #1e293b;
         }
 
-        .timing-box {
-            background-color: #f8fafc;
-            border-left: 4px solid #8b5cf6;
-            padding: 16px 20px;
-            border-radius: 0 12px 12px 0;
-            margin-top: auto;
-        }
-
-        .timing-box strong {
-            color: #6d28d9;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 15px;
-            margin-bottom: 6px;
-        }
-
-        .funding-card {
-            justify-content: center;
-        }
-
-        .funding-card .card-icon {
-            background-color: #dcfce7;
-            color: #16a34a;
-        }
-        
-        .funding-highlight {
-            display: inline-block;
-            background-color: #bbf7d0;
-            color: #166534;
-            padding: 6px 14px;
-            border-radius: 8px;
-            font-weight: 700;
-            margin-top: 14px;
-            font-size: 14px;
-        }
-
-        .fit-card {
-            background-color: #0f172a;
-            color: #f8fafc;
-            border: none;
-        }
-
-        .fit-card h2 {
-            color: #ffffff;
-        }
-
-        .fit-card p {
-            color: #cbd5e1;
-            margin-bottom: 15px;
-        }
-
-        .fit-card .card-icon {
-            background-color: #334155;
-            color: #38bdf8;
-        }
-
         .contribution-list {
             list-style: none;
             display: grid;
@@ -245,298 +186,46 @@
             color: #38bdf8;
             margin-top: 2px;
         }
-
-        .zero-burden {
-            grid-column: 1 / -1; 
-            background: rgba(56, 189, 248, 0.15) !important;
-            color: #38bdf8 !important;
-            border: 1px solid rgba(56, 189, 248, 0.3);
-        }
-
-        /* =========================================
-           SLIDE 2 SPECIFIC CSS
-           ========================================= */
-        .bento-grid-2 {
-            display: grid;
-            grid-template-columns: 1.1fr 0.9fr;
-            gap: 20px;
-            flex-grow: 1;
-        }
-
-        .experiences-card {
-            background: linear-gradient(145deg, #ffffff, #f5f3ff);
-            border: 2px solid #ddd6fe;
-        }
-
-        .speakers-card {
-            background-color: #0f172a;
-            color: #f8fafc;
-            border: none;
-            grid-row: span 2;
-        }
-
-        .speakers-card h2 {
-            color: #ffffff;
-        }
-
-        .speakers-card p {
-            color: #cbd5e1;
-            margin-bottom: 20px;
-        }
-
-        .image-card {
-            padding: 0;
-            border: none;
-            border-radius: 20px;
-            overflow: hidden;
-            position: relative;
-            min-height: 250px;
-        }
-
-        .image-card img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            position: absolute;
-            top: 0;
-            left: 0;
-        }
-
-        .feature-list {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .feature-item {
-            display: flex;
-            gap: 15px;
-            align-items: center;
-            background: rgba(255, 255, 255, 0.8);
-            padding: 16px;
-            border-radius: 14px;
-            border: 1px solid rgba(139, 92, 246, 0.2);
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
-        }
-
-        .feature-icon {
-            background: #ede9fe;
-            color: #8b5cf6;
-            width: 46px;
-            height: 46px;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 20px;
-            flex-shrink: 0;
-        }
-
-        .feature-text strong {
-            color: #1e293b;
-            font-size: 16px;
-            display: block;
-            margin-bottom: 4px;
-        }
-
-        .feature-text p {
-            font-size: 13px;
-            color: #475569;
-            margin: 0;
-            line-height: 1.4;
-        }
-
-        .speaker-list {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .speaker-item {
-            display: flex;
-            gap: 15px;
-            align-items: flex-start;
-            background: rgba(255, 255, 255, 0.05);
-            padding: 15px;
-            border-radius: 16px;
-            border: 1px solid rgba(56, 189, 248, 0.2);
-        }
-
-        .speaker-icon {
-            background: #1e293b;
-            color: #38bdf8;
-            width: 46px;
-            height: 46px;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 20px;
-            flex-shrink: 0;
-            border: 1px solid #334155;
-        }
-
-        .speaker-info strong {
-            color: #f8fafc;
-            font-size: 16px;
-            display: block;
-            margin-bottom: 4px;
-        }
-
-        .speaker-info .location {
-            font-size: 12px;
-            color: #38bdf8;
-            display: inline-block;
-            margin-bottom: 8px;
-            font-weight: 600;
-            background: rgba(56, 189, 248, 0.1);
-            padding: 4px 8px;
-            border-radius: 6px;
-        }
-
-        .speaker-info p {
-            font-size: 13px;
-            color: #cbd5e1;
-            margin: 0;
-            line-height: 1.5;
-        }
-
-        /* =========================================
-           SLIDE 3 SPECIFIC CSS
-           ========================================= */
-        .bento-grid-3 {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            flex-grow: 1;
-        }
-
-        .portfolio-card {
-            grid-row: span 2;
-            background: linear-gradient(145deg, #ffffff, #f0fdf4);
-            border: 2px solid #bbf7d0;
-        }
-
-        .portfolio-card .card-icon {
-            background-color: #dcfce7;
-            color: #16a34a;
-        }
-
-        .legitimacy-list {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            margin-top: 15px;
-        }
-
-        .legitimacy-item {
-            background: #ffffff;
-            border: 1px solid #e2e8f0;
-            padding: 16px;
-            border-radius: 12px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
-            border-left: 4px solid #16a34a;
-        }
-
-        .legitimacy-item strong {
-            display: block;
-            color: #1e293b;
-            font-size: 16px;
-            margin-bottom: 5px;
-        }
-
-        .legitimacy-item p {
-            font-size: 14px;
-            margin: 0;
-        }
-
-        .signatures-card {
-            background-color: #0f172a;
-            color: #f8fafc;
-            border: none;
-        }
-
-        .signatures-card h2 { color: #ffffff; }
-        .signatures-card p { color: #cbd5e1; margin-bottom: 15px;}
-        .signatures-card .card-icon { background-color: #334155; color: #38bdf8; }
-
-        .signature-box {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            background: rgba(255,255,255,0.05);
-            padding: 15px;
-            border-radius: 12px;
-            border: 1px solid rgba(56, 189, 248, 0.2);
-            margin-top: 10px;
-        }
-
-        .signature-box i {
-            font-size: 24px;
-            color: #38bdf8;
-        }
-
-        .cosponsor-card {
-            background: linear-gradient(145deg, #ffffff, #f0f9ff);
-            border: 2px solid #bae6fd;
-        }
-
-        .cosponsor-card .card-icon {
-            background-color: #e0f2fe;
-            color: #0ea5e9;
-        }
-
-        /* =========================================
-           RESPONSIVE DESIGN (Prevents cut-offs)
-           ========================================= */
-        @media (max-width: 960px) {
-            .bento-grid-1, .bento-grid-2, .bento-grid-3 {
-                grid-template-columns: 1fr; 
-            }
-            .strategy-card, .speakers-card, .portfolio-card {
-                grid-row: auto; 
-            }
-            .image-card {
-                min-height: 250px;
-            }
-        }
     </style>
 </head>
 <body>
 
     <!-- ==========================================
-         SLIDE 1: Introduction (Newly Added)
+         SLIDE 1: Introduction 
          ========================================== -->
     <div class="slide-container" id="slide0">
         <header class="header">
             <h1>Candidacy for <span>Director of STEM Outreach</span></h1>
-            <p>Bridging technical skill-building with global humanitarian advocacy.</p>
+            <p>Bringing technical leadership and innovative fundraising to the board.</p>
         </header>
-
-        <div class="bento-grid-2">
-            <div class="bento-card fit-card" style="grid-row: span 2;">
-                <div class="card-header-row">
-                    <div class="card-icon">
-                        <i class="fa-solid fa-user-astronaut"></i>
-                    </div>
-                    <h2>Meet the Candidate</h2>
+        <div class="bento-grid">
+            <div class="bento-card intro-card">
+                <div class="card-icon"><i class="fa-solid fa-user-astronaut"></i></div>
+                <h2>Meet the Candidate</h2>
+                <p>I am a highly motivated STEM student currently active in Exoplanet research and satellite communications. I am bridging my background in Astronomy and Web Development to build a powerful new outreach pipeline for UNICEF.</p>
+                <div class="skill-tags">
+                    <span class="skill-tag">Satellite Tracking</span>
+                    <span class="skill-tag">Ham Radio Licensed</span>
+                    <span class="skill-tag">Web Development</span>
+                    <span class="skill-tag">Data Analysis</span>
                 </div>
-                <p style="margin-bottom: 25px; font-size: 16px; line-height: 1.6;">I am a highly motivated STEM student currently active in Exoplanet research and satellite communications. I am bridging my background in Astronomy and Web Development to build a powerful new outreach pipeline for UNICEF.</p>
-                
-                <ul class="contribution-list" style="margin-bottom: 30px;">
-                    <li><i class="fa-solid fa-satellite"></i> Satellite Tracking</li>
-                    <li><i class="fa-solid fa-radio"></i> Ham Radio Licensed</li>
-                    <li><i class="fa-solid fa-code"></i> Web Development</li>
-                    <li><i class="fa-solid fa-chart-pie"></i> Data Analysis</li>
-                </ul>
-
-                <div style="background: rgba(255,255,255,0.05); padding: 20px; border-radius: 16px; margin-top: auto; border-left: 4px solid #38bdf8;">
-                    <strong style="color: #38bdf8; display: block; margin-bottom: 8px; font-size: 16px;">My Vision:</strong>
-                    <p style="font-size: 14px; margin: 0; line-height: 1.5; color: #cbd5e1;">Transforming UNICEF into a campus hub for tech-driven humanitarian impact, where technical skill-building directly empowers our core mission of global child advocacy.</p>
+                <div style="margin-top: 40px; border-top: 1px solid #334155; padding-top: 25px;">
+                    <strong style="color: #38bdf8; display: block; margin-bottom: 8px; font-size: 18px;">My Vision:</strong>
+                    <p style="font-size: 15px; color: #94a3b8; margin: 0;">Transforming UNICEF into a campus hub for tech-driven humanitarian impact, where technical skill-building directly empowers our core mission of global child advocacy.</p>
                 </div>
             </div>
 
-            <div class="bento-card image-card" style="grid-row: span 2;">
+            <div class="bento-card strategy-card" style="grid-row: span 1;">
+                <div class="card-icon"><i class="fa-solid fa-bullseye"></i></div>
+                <h2>The STEM Strategy</h2>
+                <p style="font-size: 16px; color: #0369a1; margin-bottom: 20px;">We will capture unreached demographics through portfolio-building workshops (Coding, Space Science, Data) that connect directly to global humanitarian advocacy.</p>
+                <div class="info-box">
+                    <strong style="font-size: 16px; color: #0ea5e9; display: block; margin-bottom: 5px;"><i class="fa-solid fa-bolt"></i> Turnkey Contribution</strong>
+                    <p style="font-size: 14px; color: #64748b; margin: 0;">I independently manage 100% of the logistics, curriculum, and marketing—requiring <strong>zero extra bandwidth</strong> from the current board.</p>
+                </div>
+            </div>
+
+            <div class="bento-card image-card">
                 <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=1470&auto=format&fit=crop" alt="Collaborative STEM environment">
             </div>
         </div>
@@ -546,15 +235,13 @@
          SLIDE 2: The Core Pitch
          ========================================== -->
     <div class="slide-container" id="slide1">
-        
         <header class="header">
             <h1>Proposal: <span>Director of STEM Outreach & Creative Fundraising</span></h1>
             <p>A new, specialized board position designed to bridge technical skill-building with global advocacy.</p>
         </header>
 
-        <div class="bento-grid-1">
-            
-            <div class="bento-card strategy-card">
+        <div class="bento-grid">
+            <div class="bento-card strategy-card" style="grid-row: span 2;">
                 <div class="card-header-row">
                     <div class="card-icon">
                         <i class="fa-solid fa-layer-group"></i>
@@ -582,42 +269,40 @@
                     </div>
                 </div>
 
-                <div class="timing-box">
-                    <strong><i class="fa-solid fa-calendar-check"></i> Strategic Non-Competing Scheduling</strong>
-                    <p style="font-size: 14px; margin:0;">Workshops will be scheduled on weekends or low-conflict weeks (e.g., pre-midterm de-stressers). This ensures they act as a supplementary program that <strong>never competes</strong> with general UNICEF meeting times.</p>
+                <div class="info-box" style="margin-top: auto; border-radius: 12px; border-left: 4px solid #8b5cf6; padding: 15px;">
+                    <strong style="color: #6d28d9; display: flex; align-items: center; gap: 8px; font-size: 15px; margin-bottom: 6px;"><i class="fa-solid fa-calendar-check"></i> Strategic Non-Competing Scheduling</strong>
+                    <p style="font-size: 14px; margin:0; color: #475569;">Workshops will be scheduled on weekends or low-conflict weeks. This ensures they act as a supplementary program that <strong>never competes</strong> with general UNICEF meeting times.</p>
                 </div>
             </div>
 
-            <div class="bento-card funding-card">
+            <div class="bento-card" style="background-color: #f8fafc; border: 1px solid #e2e8f0; display: flex; flex-direction: column; justify-content: center;">
                 <div class="card-header-row">
-                    <div class="card-icon">
+                    <div class="card-icon" style="background-color: #dcfce7; color: #16a34a;">
                         <i class="fa-solid fa-hand-holding-dollar"></i>
                     </div>
-                    <h2>A New Revenue Stream</h2>
+                    <h2 style="font-family: 'Outfit'; font-size: 26px; color: #0f172a; font-weight: 700;">A New Revenue Stream</h2>
                 </div>
-                <p>These are not just outreach events; they act as an entirely new financial mechanism. By offering valuable, resume-boosting skills, we drive consistent, reliable club income.</p>
+                <p style="color: #475569; font-size: 15px;">These are not just outreach events; they act as an entirely new financial mechanism. By offering valuable, resume-boosting skills, we drive consistent, reliable club income.</p>
                 <div>
-                    <span class="funding-highlight">Via "Registration Donations"</span>
+                    <span style="display: inline-block; background-color: #bbf7d0; color: #166534; padding: 6px 14px; border-radius: 8px; font-weight: 700; margin-top: 14px; font-size: 14px;">Via "Registration Donations"</span>
                 </div>
             </div>
 
-            <div class="bento-card fit-card">
+            <div class="bento-card" style="background-color: #0f172a; color: #f8fafc; border: none;">
                 <div class="card-header-row">
-                    <div class="card-icon">
+                    <div class="card-icon" style="background-color: #334155; color: #38bdf8;">
                         <i class="fa-solid fa-user-astronaut"></i>
                     </div>
-                    <h2>My Autonomous Contribution</h2>
+                    <h2 style="color: #ffffff; font-family: 'Outfit'; font-size: 26px;">My Autonomous Contribution</h2>
                 </div>
-                <p>As an Astronomy Club freshman, I bring built-in cross-campus networking and a 4-year commitment. Most importantly, I offer complete turnkey execution:</p>
+                <p style="color: #cbd5e1; margin-bottom: 15px; font-size: 14px;">As an Astronomy Club freshman, I bring built-in cross-campus networking and a 4-year commitment. Most importantly, I offer complete turnkey execution:</p>
                 
                 <ul class="contribution-list">
                     <li><i class="fa-solid fa-check"></i> 100% Curriculum Design</li>
                     <li><i class="fa-solid fa-check"></i> Room Booking & Logistics</li>
-                    <li><i class="fa-solid fa-check"></i> Cross-Club Marketing</li>
-                    <li class="zero-burden"><i class="fa-solid fa-bolt"></i> <strong>Zero extra bandwidth required from the Executive Board</strong></li>
+                    <li style="grid-column: 1 / -1; background: rgba(56, 189, 248, 0.15) !important; color: #38bdf8 !important; border: 1px solid rgba(56, 189, 248, 0.3);"><i class="fa-solid fa-bolt"></i> <strong>Zero extra bandwidth required from the Executive Board</strong></li>
                 </ul>
             </div>
-
         </div>
     </div>
 
@@ -625,82 +310,42 @@
          SLIDE 3: Future Expansion & Speakers
          ========================================== -->
     <div class="slide-container" id="slide2">
-        
         <header class="header">
             <h1>Phase 2: <span>Scaling the Engagement</span></h1>
             <p>Moving beyond standard workshops to build a permanent campus network and expert speaker pipeline.</p>
         </header>
-
-        <div class="bento-grid-2">
+        <div class="bento-grid">
+            <div class="bento-card" style="grid-row: span 2; background: #f5f3ff; border: 1px solid #ddd6fe;">
+                <div class="card-icon" style="background: #ede9fe; color: #8b5cf6;"><i class="fa-solid fa-rocket"></i></div>
+                <h2 style="color: #4c1d95; font-family: 'Outfit'; font-size: 28px;">Elevating the Experience</h2>
+                <p style="margin-bottom: 15px; color: #475569;">We will introduce high-engagement incentives to turn one-time attendees into permanent members.</p>
+                <div class="item-list">
+                    <div class="list-item">
+                        <i class="fa-solid fa-laptop-code"></i>
+                        <div><strong style="color: #1e293b; font-size: 16px;">"Hack for Humanity"</strong><p style="font-size: 13px; color: #64748b; margin-top: 4px;">A beginner-friendly project day for tech-driven advocacy.</p></div>
+                    </div>
+                    <div class="list-item">
+                        <i class="fa-solid fa-certificate"></i>
+                        <div><strong style="color: #1e293b; font-size: 16px;">Tech for Good Credential</strong><p style="font-size: 13px; color: #64748b; margin-top: 4px;">A formal certificate to incentivize and reward member retention.</p></div>
+                    </div>
+                </div>
+            </div>
             
-            <div class="bento-card experiences-card">
-                <div class="card-header-row">
-                    <div class="card-icon" style="background-color: #ede9fe; color: #8b5cf6;">
-                        <i class="fa-solid fa-rocket"></i>
-                    </div>
-                    <h2 style="color: #0f172a;">Elevating the Experience</h2>
+            <div class="bento-card" style="background: #0f172a; color: white; border: none;">
+                <h2 style="color: white; font-family: 'Outfit'; font-size: 26px; margin-bottom: 15px;">The Guest Speaker Network</h2>
+                <div style="border-left: 3px solid #38bdf8; padding-left: 15px; margin-bottom: 20px;">
+                    <strong style="color: #38bdf8; font-size: 15px; display: flex; align-items: center; gap: 8px;"><i class="fa-solid fa-satellite"></i> NASA Ames Bureau</strong>
+                    <p style="font-size: 13px; color: #94a3b8; margin: 4px 0 0 0;">Bringing orbital mechanics and mission data to our STEM workshops.</p>
                 </div>
-                <p style="margin-bottom: 15px;">We will introduce high-engagement incentives to turn one-time attendees into permanent members.</p>
-                
-                <div class="feature-list">
-                    <div class="feature-item">
-                        <div class="feature-icon"><i class="fa-solid fa-laptop-code"></i></div>
-                        <div class="feature-text">
-                            <strong>"Hack for Humanity" Mini-Thon</strong>
-                            <p>A beginner-friendly, 1-day event where cross-campus teams build simple tech projects addressing global UNICEF issues.</p>
-                        </div>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-icon"><i class="fa-solid fa-certificate"></i></div>
-                        <div class="feature-text">
-                            <strong>"Tech for Good" Digital Certificate</strong>
-                            <p>A resume-boosting credential awarded to students who attend 3+ workshops, heavily incentivizing long-term club retention.</p>
-                        </div>
-                    </div>
+                <div style="border-left: 3px solid #10b981; padding-left: 15px;">
+                    <strong style="color: #10b981; font-size: 15px; display: flex; align-items: center; gap: 8px;"><i class="fa-solid fa-chart-line"></i> DataKind Outreach</strong>
+                    <p style="font-size: 13px; color: #94a3b8; margin: 4px 0 0 0;">Experts teaching how to use data analytics for social impact.</p>
                 </div>
             </div>
-
-            <div class="bento-card speakers-card">
-                <div class="card-header-row">
-                    <div class="card-icon" style="background-color: #334155; color: #38bdf8;">
-                        <i class="fa-solid fa-microphone-lines"></i>
-                    </div>
-                    <h2 style="color: #ffffff;">The Guest Speaker Network</h2>
-                </div>
-                <p style="color: #cbd5e1; margin-bottom: 20px;">I have identified accessible experts who regularly speak at universities to feature at our events:</p>
-
-                <div class="speaker-list">
-                    <div class="speaker-item">
-                        <div class="speaker-icon"><i class="fa-solid fa-satellite"></i></div>
-                        <div class="speaker-info">
-                            <strong>NASA Ames Speakers Bureau</strong>
-                            <span class="location"><i class="fa-solid fa-location-dot"></i> Mountain View, CA (In-Person/Zoom)</span>
-                            <p>Local scientists officially available to present to students on orbital mechanics, missions, and space science.</p>
-                        </div>
-                    </div>
-                    <div class="speaker-item">
-                        <div class="speaker-icon"><i class="fa-solid fa-chart-line"></i></div>
-                        <div class="speaker-info">
-                            <strong>DataKind Outreach</strong>
-                            <span class="location"><i class="fa-solid fa-laptop"></i> San Francisco / Virtual</span>
-                            <p>Tech professionals who specialize in teaching students how to leverage data analytics for nonprofits.</p>
-                        </div>
-                    </div>
-                    <div class="speaker-item">
-                        <div class="speaker-icon"><i class="fa-solid fa-user-astronaut"></i></div>
-                        <div class="speaker-info">
-                            <strong>The SETI Institute</strong>
-                            <span class="location"><i class="fa-solid fa-location-dot"></i> Mountain View, CA (In-Person/Zoom)</span>
-                            <p>World-renowned researchers with a dedicated education outreach arm, ready to talk about astrobiology and STEM.</p>
-                        </div>
-                    </div>
-                </div>
+            
+            <div class="bento-card image-card" style="height: auto;">
+                <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1471&auto=format&fit=crop" alt="Students working on tech">
             </div>
-
-            <div class="bento-card image-card">
-                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1470&auto=format&fit=crop" alt="College students participating in a hackathon coding on laptops">
-            </div>
-
         </div>
     </div>
 
@@ -709,61 +354,107 @@
          ========================================== -->
     <div class="slide-container" id="slide3">
         <header class="header">
-            <h1>The Credential: <span>Legitimizing "Tech for Good"</span></h1>
-            <p>How we ensure the certificate provides real resume value for STEM students rather than just being a piece of paper.</p>
+            <h1>The Credential: <span>Legitimizing Impact</span></h1>
+            <p>Providing authentic resume value for our technical volunteers.</p>
+        </header>
+        <div class="bento-grid">
+            <div class="bento-card" style="grid-row: span 2; background: #f0fdf4; border: 2px solid #bbf7d0;">
+                <div class="card-icon" style="background: #dcfce7; color: #16a34a;"><i class="fa-solid fa-briefcase"></i></div>
+                <h2 style="color: #166534; font-family: 'Outfit'; font-size: 28px;">Resume Legitimacy</h2>
+                <p style="font-size: 15px; color: #166534;">Recruiters value proof of skill. Our credential bridges that gap.</p>
+                <div class="credential-box">
+                    <strong style="font-size: 16px; color: #166534; display: flex; align-items: center; gap: 8px;"><i class="fa-solid fa-laptop-code"></i> Portfolio-Based Verification</strong>
+                    <p style="font-size: 14px; color: #166534; margin: 8px 0 0 0;">Certificates are earned through project output (e.g., an advocacy site or data model), providing verifiable proof of skill.</p>
+                </div>
+                <div class="credential-box" style="border-left-color: #0ea5e9; background: #f0f9ff; border: 1px solid #bae6fd;">
+                    <strong style="font-size: 16px; color: #0c4a6e; display: flex; align-items: center; gap: 8px;"><i class="fa-brands fa-linkedin" style="color: #0ea5e9;"></i> LinkedIn Recognition</strong>
+                    <p style="font-size: 14px; color: #0c4a6e; margin: 8px 0 0 0;">Standardized badges that members can list as technical community service, verified by the UNICEF board.</p>
+                </div>
+            </div>
+            
+            <div class="bento-card" style="background: #0f172a; color: white; border: none;">
+                <div class="card-header-row">
+                    <div class="card-icon" style="background: #334155; color: #38bdf8;"><i class="fa-solid fa-file-signature"></i></div>
+                    <h2 style="color: white; font-family: 'Outfit'; font-size: 26px;">Board Endorsement</h2>
+                </div>
+                <p style="font-size: 14px; color: #cbd5e1; margin-top: 5px;">We build prestige through co-signed documentation from Club Leadership and Faculty Advisors.</p>
+                <div style="background: rgba(255,255,255,0.05); padding: 15px; border-radius: 12px; margin-top: 15px; border: 1px dashed #38bdf8; display: flex; align-items: center; gap: 15px;">
+                    <i class="fa-solid fa-pen-nib" style="color: #38bdf8; font-size: 20px;"></i>
+                    <p style="font-size: 13px; color: #94a3b8; margin: 0;">Co-signed by: Presidents, Faculty Advisor, and STEM Director.</p>
+                </div>
+            </div>
+            
+            <div class="bento-card" style="background: #f0f9ff; border: 1px solid #bae6fd;">
+                <div class="card-header-row">
+                    <div class="card-icon" style="background: #e0f2fe; color: #0ea5e9;"><i class="fa-solid fa-handshake-angle"></i></div>
+                    <h2 style="color: #0c4a6e; font-family: 'Outfit'; font-size: 26px;">Strategic Prestige</h2>
+                </div>
+                <p style="font-size: 15px; margin-top: 5px; color: #0c4a6e;">Inviting guest organizations (e.g., NASA Ames) to co-sponsor workshops, maximizing the professional weight of our certificates.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==========================================
+         SLIDE 5: The Bottom Line (Benefits to UNICEF)
+         ========================================== -->
+    <div class="slide-container" id="slide4">
+        <header class="header">
+            <h1>The Bottom Line: <span>The ROI for UNICEF</span></h1>
+            <p>Why this expansion is the most rewarding, low-risk move for the Executive Board.</p>
         </header>
 
-        <div class="bento-grid-3">
+        <div class="bento-grid-equal">
             
-            <div class="bento-card portfolio-card">
+            <!-- Demographic Box -->
+            <div class="bento-card" style="background: linear-gradient(145deg, #0f172a, #1e293b); color: white; border: none;">
                 <div class="card-header-row">
-                    <div class="card-icon"><i class="fa-solid fa-briefcase"></i></div>
-                    <h2>1. Project-Based Portfolios</h2>
+                    <div class="card-icon" style="background: #334155; color: #38bdf8;"><i class="fa-solid fa-users-rays"></i></div>
+                    <h2 style="color: white; font-family: 'Outfit'; font-size: 22px;">Unlocking a Hidden Demographic</h2>
                 </div>
-                <p>STEM recruiters care about what students actually build. To earn this certificate, students don't just sit and listen; they must complete a "Tech for Good" mini-project during the workshops.</p>
-                
-                <div class="legitimacy-list">
-                    <div class="legitimacy-item">
-                        <strong><i class="fa-solid fa-laptop-code" style="color: #16a34a; margin-right: 8px;"></i> Actionable Output</strong>
-                        <p>Examples: Building a basic webpage about UNICEF's clean water initiatives, or creating a simple data graph mapping education inequality.</p>
-                    </div>
-                    <div class="legitimacy-item">
-                        <strong><i class="fa-brands fa-linkedin" style="color: #0ea5e9; margin-right: 8px;"></i> Direct LinkedIn Value</strong>
-                        <p>Students can link these official UNICEF-themed projects directly to their GitHub or LinkedIn profiles as proof of technical extracurricular volunteer work.</p>
-                    </div>
-                </div>
-                
-                <div style="margin-top: 20px; border-radius: 12px; overflow: hidden; height: 180px; width: 100%;">
-                    <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=1470&auto=format&fit=crop" alt="Confident college student presenting project on laptop" style="width: 100%; height: 100%; object-fit: cover;">
+                <p style="color: #cbd5e1; font-size: 14px;">By offering actionable, tech-focused skill-building, we instantly make UNICEF a highly appealing organization for Engineering, CS, and Physics majors, expanding our reach beautifully alongside our dedicated humanities advocates.</p>
+                <div style="margin-top: auto; padding-top: 15px; display: flex; flex-wrap: wrap; gap: 8px;">
+                    <span style="display: inline-block; background: rgba(56, 189, 248, 0.15); color: #38bdf8; padding: 6px 12px; border-radius: 8px; font-weight: 600; font-size: 12px;"><i class="fa-solid fa-arrow-trend-up"></i> Membership Boost</span>
+                    <span style="display: inline-block; background: rgba(16, 185, 129, 0.15); color: #10b981; padding: 6px 12px; border-radius: 8px; font-weight: 600; font-size: 12px;"><i class="fa-solid fa-handshake-angle"></i> Campus Collaboration</span>
                 </div>
             </div>
 
-            <div class="bento-card signatures-card">
+            <!-- New: Industry Partnerships Box -->
+            <div class="bento-card" style="background: #f5f3ff; border: 2px solid #ddd6fe;">
                 <div class="card-header-row">
-                    <div class="card-icon"><i class="fa-solid fa-file-signature"></i></div>
-                    <h2>2. Official Endorsements</h2>
+                    <div class="card-icon" style="background: #ede9fe; color: #8b5cf6;"><i class="fa-solid fa-building-columns"></i></div>
+                    <h2 style="color: #4c1d95; font-family: 'Outfit'; font-size: 22px;">Elevated Industry Partnerships</h2>
                 </div>
-                <p>A certificate gains legitimacy based on who backs it. We will design a professional template that establishes it as a recognized university extracurricular achievement.</p>
-                
-                <div class="signature-box">
-                    <i class="fa-solid fa-pen-nib"></i>
-                    <div>
-                        <strong style="display: block; font-size: 16px; margin-bottom: 2px;">Signed by Leadership</strong>
-                        <p style="font-size: 13px; margin: 0; color: #cbd5e1;">Co-signed by the UNICEF Faculty Advisor, Club Presidents, and the STEM Director.</p>
-                    </div>
+                <p style="font-size: 14px; color: #475569;">Hosting high-profile speakers from organizations like NASA Ames and DataKind elevates the club’s institutional prestige.</p>
+                <div style="background: white; padding: 12px; border-radius: 12px; margin-top: auto; border-left: 4px solid #8b5cf6; box-shadow: 0 4px 6px rgba(0,0,0,0.02);">
+                    <strong style="color: #6d28d9; font-size: 13px; display: block; margin-bottom: 4px;">A Professional Network</strong>
+                    <p style="font-size: 13px; margin: 0; color: #475569;">We position UNICEF not just as an advocacy group, but as a premier professional development hub.</p>
                 </div>
             </div>
 
-            <div class="bento-card cosponsor-card">
+            <!-- Fundraising Box (Revised POSITIVE wording) -->
+            <div class="bento-card" style="background: #f0fdf4; border: 2px solid #bbf7d0;">
                 <div class="card-header-row">
-                    <div class="card-icon"><i class="fa-solid fa-handshake-angle"></i></div>
-                    <h2>3. Strategic Co-Sponsorships</h2>
+                    <div class="card-icon" style="background: #dcfce7; color: #16a34a;"><i class="fa-solid fa-sack-dollar"></i></div>
+                    <h2 style="color: #166534; font-family: 'Outfit'; font-size: 22px;">Premium Fundraising</h2>
                 </div>
-                <p>To maximize resume prestige, we can invite our guest speakers or the Computer Science/Physics departments to "co-sponsor" the credential.</p>
-                <p style="margin-top: 15px; font-weight: 600; color: #0f172a; font-size: 15px;">
-                    <i class="fa-solid fa-arrow-right" style="color: #0ea5e9; margin-right: 8px;"></i>
-                    A certificate featuring the UNICEF logo alongside a guest organization's name (e.g., DataKind) is a massive draw for ambitious students.
-                </p>
+                <p style="font-size: 14px; color: #166534;">Complementing our excellent traditional events with "Tech for Good" workshops adds a premium, educational offering to our fundraising portfolio.</p>
+                <div style="background: white; padding: 12px; border-radius: 12px; margin-top: auto; border-left: 4px solid #16a34a; box-shadow: 0 4px 6px rgba(0,0,0,0.02);">
+                    <strong style="color: #166534; font-size: 13px; display: block; margin-bottom: 4px;">The Economics:</strong>
+                    <p style="font-size: 13px; margin: 0; color: #166534;">Students are highly willing to donate $5-$10 for a resume-boosting technical workshop, creating recurring revenue.</p>
+                </div>
+            </div>
+
+            <!-- Zero Risk Box -->
+            <div class="bento-card" style="background: #f0f9ff; border: 2px solid #bae6fd;">
+                <div class="card-header-row">
+                    <div class="card-icon" style="background: #e0f2fe; color: #0284c7;"><i class="fa-solid fa-handshake-simple"></i></div>
+                    <h2 style="color: #0c4a6e; font-family: 'Outfit'; font-size: 22px;">The "Zero Risk" Guarantee</h2>
+                </div>
+                <p style="font-size: 14px; color: #0c4a6e;">This is a turnkey proposal. You do not have to stretch the current board's bandwidth to make this happen.</p>
+                <div style="background: white; padding: 12px; border-radius: 12px; margin-top: auto; border-left: 4px solid #0ea5e9; box-shadow: 0 4px 6px rgba(0,0,0,0.02);">
+                    <strong style="color: #0284c7; font-size: 13px; display: block; margin-bottom: 4px;">100% Upside</strong>
+                    <p style="font-size: 13px; margin: 0; color: #0c4a6e;">I handle all curriculum, marketing, and execution. The Executive Board assumes zero administrative burden.</p>
+                </div>
             </div>
 
         </div>
